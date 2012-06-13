@@ -4,4 +4,11 @@
     <string name="hello">Hello World, HomePage!</string>
     <string name="app_name">BabyRoad</string>
 
+    <string name="main_home">Home</string>
+    <string name="main_diary">Diary</string>
+    <string name="main_story">Stroy</string>
+    <string name="homepage">Hello World, HomePage!</string>
+    <string name="diarypage">Hello World, DiaryPage!</string>
+    <string name="storypage">Hello World, StoryPage!</string>
+
 </resources>
