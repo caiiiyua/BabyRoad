@@ -10,5 +10,10 @@
     <string name="homepage">Hello World, HomePage!</string>
     <string name="diarypage">Hello World, DiaryPage!</string>
     <string name="storypage">Hello World, StoryPage!</string>
+    
+    <string name="common_back">Back</string>
+    <string name="common_edit">Edit</string>
+    
+    <string name="diaryview_has_no_comment">You have not commenst with these photos!</string>
 
 </resources>

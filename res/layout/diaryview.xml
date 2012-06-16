@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/diaryviewtitle" />
+
+    <LinearLayout
+        android:id="@+id/diaryview_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <Gallery
+            android:id="@+id/diaryview_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#788388" />
+
+        <TextView
+            android:id="@+id/diaryview_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diaryview_has_no_comment" />
+    </LinearLayout>
+
+</LinearLayout>
