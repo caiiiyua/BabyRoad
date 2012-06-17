@@ -13,6 +13,7 @@ public class EntryForTest extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entry);
+        //home page entry
         Button btn_homepage = (Button)findViewById(R.id.btn_homepage);
         btn_homepage.setOnClickListener(new OnClickListener() {
 
@@ -23,7 +24,7 @@ public class EntryForTest extends Activity {
                 startActivity(it);
             }
         });
-        
+        //diary view entry
         Button btn_diaryview = (Button)findViewById(R.id.btn_diaryview);
         btn_diaryview.setOnClickListener(new OnClickListener() {
 
@@ -32,6 +33,15 @@ public class EntryForTest extends Activity {
                 Intent it = new Intent();
                 it.setClass(EntryForTest.this, DiaryView.class);
                 startActivity(it);
+            }
+        });
+        //diary edit entry
+        Button btn_diaryedit = (Button)findViewById(R.id.btn_diaryedit);
+        btn_diaryedit.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                DiaryEdit.actionCompose(EntryForTest.this);
             }
         });
     }

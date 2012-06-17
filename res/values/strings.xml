@@ -13,7 +13,9 @@
     
     <string name="common_back">Back</string>
     <string name="common_edit">Edit</string>
+    <string name="common_save">Save</string>
     
-    <string name="diaryview_has_no_comment">You have not commenst with these photos!</string>
+    <string name="diaryview_has_no_comment">You have not comments with these photos!</string>
 
+    <string name="diaryedit_compose_hint">Compose a diary.</string>
 </resources>
