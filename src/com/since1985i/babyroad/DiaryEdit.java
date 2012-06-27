@@ -2,6 +2,9 @@ package com.since1985i.babyroad;
 
 import java.util.ArrayList;
 
+import com.since1985i.babyroad.provider.DiaryContent.Diary;
+import com.since1985i.babyroad.util.LogUtil;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageView;
 
@@ -45,12 +49,16 @@ public class DiaryEdit extends Activity {
     private int mMode = MODE_COMPOSE;
     private Gallery mGallery;
     private ImageAdapter mImageAdapter;
+    private EditText mDiaryBody;
+    
+    private Diary mDiary;
+    private boolean mShouldSave = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diaryedit);
-
+        mShouldSave = true;
         mMode = getIntent().getIntExtra(EXTRA_MODE, MODE_COMPOSE);
 
         Button btn_back = (Button)findViewById(R.id.btn_left_1);
@@ -62,6 +70,7 @@ public class DiaryEdit extends Activity {
             }
         });
 
+        mDiaryBody = (EditText) findViewById(R.id.diaryedit_text);
         mGallery = (Gallery) findViewById(R.id.diaryedit_gallery);
         mImageAdapter = new ImageAdapter(this);
         mGallery.setAdapter(mImageAdapter);
@@ -95,10 +104,27 @@ public class DiaryEdit extends Activity {
                 mGallery.setAdapter(mImageAdapter);
             }
         }
-        
+    }
+    
+    @Override
+    protected void onStop() {
+        LogUtil.log("-----onStop");
+        if (mShouldSave) {
+            saveDiary();
+        }
+        super.onStop();
     }
 
-    
+    private void saveDiary() {
+        LogUtil.log("-----saveDiary");
+        if (mDiary == null) {
+            mDiary = new Diary(this);
+        }
+        mDiary.mContent = mDiaryBody.getText().toString();
+        mDiary.mTitle = "";
+        mDiary.saveOrUpdate();
+    }
+
     class ImageAdapter extends BaseAdapter
     {
         private ArrayList<Bitmap> imagelist = new ArrayList<Bitmap>();

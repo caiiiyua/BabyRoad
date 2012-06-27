@@ -33,6 +33,13 @@
         
         <activity android:name=".DiaryView"></activity>
         <activity android:name=".DiaryEdit"></activity>
+
+        <provider
+            android:name="com.since1985i.babyroad.provider.DiaryProvider"
+            android:authorities="com.since1985i.babyroad.provider.DiaryProvider"
+            android:grantUriPermissions="true"
+            android:readPermission="com.since1985i.babyroad.permission.READ_PROVIDER"
+            />
     </application>
 
 </manifest>
